@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Demostración de Datos";
+    int codigo = (int)ViewData["CodigoUsuario"];
+}
+
+<div class="card mt-4">
+    <div class="card-header bg-dark text-white">
+        <h3>Datos Transferidos al Cliente</h3>
+    </div>
+    <div class="card-body">
+
+        <h4>Uso de ViewData:</h4>
+        <p><strong>Fecha del Sistema:</strong> @ViewData["FechaActual"]</p>
+        <p><strong>Código Recuperado (Casteado):</strong> @codigo</p>
+
+        <hr />
+
+        <h4>Uso de ViewBag (Propiedades Dinámicas):</h4>
+        <p><strong>Curso Activo:</strong> @ViewBag.NombreModulo</p>
+        <p><strong>¿Conexión Establecida?:</strong> @(ViewBag.EstadoConexion ? "Sí, Activa" : "No")</p>
+
+        <hr />
+
+        <h4>Uso de TempData:</h4>
+        @if (TempData["AlertaSeguridad"] != null)
+        {
+            <div class="alert alert-warning">
+                <strong>Atención:</strong> @TempData["AlertaSeguridad"]
+            </div>
+        }
+    </div>
+</div>
+
